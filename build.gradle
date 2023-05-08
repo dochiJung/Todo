@@ -8,15 +8,32 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+configurations {
+   compileOnly {
+      extendsFrom annotationProcessor
+   }
+}
+
 repositories {
-	mavenCentral()
+   mavenCentral()
+   maven { url 'https://repo.spring.io/milestone' }
+   maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+   implementation 'org.springframework.boot:spring-boot-starter-web'
+   runtimeOnly 'com.h2database:h2'
+   compileOnly 'org.projectlombok:lombok:1.18.24'
+   annotationProcessor 'org.projectlombok:lombok:1.18.24'
+   testCompileOnly 'org.projectlombok:lombok:1.18.24'
+   testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+   testImplementation 'org.springframework.boot:spring-boot-starter-test'
+   // https://mvnrepository.com/artifact/com.google.guava/guava
+implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+   
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+test {
+   useJUnitPlatform()
 }
