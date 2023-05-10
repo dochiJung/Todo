@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class TodoDTO {
-	private long id;
+	private String id;
 	private String title;
 	private boolean done;
 	

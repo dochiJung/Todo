@@ -19,9 +19,9 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name= "Todo")
 public class TodoEntity {
 	@Id
-	@GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system_uuid", strategy="uuid")
-	private long id;
+	@GeneratedValue(generator = "system_uuid")
+	@GenericGenerator(name = "system_uuid", strategy = "uuid")
+	private String id;
 	private String userId;
 	private String title;
 	private boolean done; //true - todo를 완료한 경우(checked)
